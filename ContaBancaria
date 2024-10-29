@@ -1,0 +1,25 @@
+class ContaBancaria:
+    def __init__(self, numero, titular, deposito_inicial=0.0):
+        self.numero = numero
+        self.titular = titular
+        self.saldo = deposito_inicial
+
+    def deposito(self, quantia):
+        self.saldo += quantia
+
+    def saque(self, quantia):
+        self.saldo -= quantia
+
+    def mostrar_dados(self):
+        print(f'Conta: {self.numero}, Titular: {self.titular}, Saldo: R$ {self.saldo:.2f}')
+
+numero = int(input("Número da conta: "))
+titular = input("Nome do titular: ")
+deposito_inicial = float(input("Depósito inicial (ou 0 se não houver): "))
+conta = ContaBancaria(numero, titular, deposito_inicial)
+
+conta.mostrar_dados()
+conta.deposito(float(input("Valor do depósito: ")))
+conta.mostrar_dados()
+conta.saque(float(input("Valor do saque: ")))
+conta.mostrar_dados()
